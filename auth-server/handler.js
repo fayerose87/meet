@@ -22,13 +22,51 @@ const oAuth2Client = new google.auth.OAuth2(
   redirect_uris[0]
 );
 
-// generate url so users can login and view google calendar
 module.exports.getAuthURL = async () => {
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: "offline",
     scope: SCOPES,
   });
 
+  module.exports.getAccessToken = async (event) => {
+    // The values used to instantiate the OAuthClient are at the top of the file
+    const oAuth2Client = new google.auth.OAuth2(
+      client_id,
+      client_secret,
+      redirect_uris[0]
+    );
+    // Decode authorization code extracted from the URL query
+    const code = decodeURIComponent(`${event.pathParameters.code}`);
+
+    return new Promise((resolve, reject) => {
+      /**
+       *  Exchange authorization code for access token with a “callback” after the exchange,
+       *  The callback in this case is an arrow function with the results as parameters: “err” and “token.”
+       */
+
+      oAuth2Client.getToken(code, (err, token) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(token);
+      });
+    })
+      .then((token) => {
+        // Respond with OAuth token
+        return {
+          statusCode: 200,
+          body: JSON.stringify(token),
+        };
+      })
+      .catch((err) => {
+        // Handle error
+        console.error(err);
+        return {
+          statusCode: 500,
+          body: JSON.stringify(err),
+        };
+      });
+  };
   return {
     statusCode: 200,
     headers: {
@@ -38,93 +76,4 @@ module.exports.getAuthURL = async () => {
       authUrl: authUrl,
     }),
   };
-};
-
-// Get access token and return to user
-module.exports.getAccessToken = async (event) => {
-  const oAuth2Client = new google.auth.OAuth2(
-    client_id,
-    client_secret,
-    redirect_uris[0]
-  );
-  // decode authorization code extracted from URL query
-  const code = decodeURIComponent(`${event.pathParameters.code}`);
-
-  return new Promise((resolve, reject) => {
-    oAuth2Client.getToken(code, (err, token) => {
-      if (err) {
-        return reject(err);
-      }
-      return resolve(token);
-    });
-  })
-    .then((token) => {
-      // respond with OAuth token
-      return {
-        statusCode: 200,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify(token),
-      };
-    })
-    .catch((err) => {
-      console.error(err);
-      return {
-        statusCode: 500,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify(err),
-      };
-    });
-};
-
-// pass access token to google calendar api and get calendar events
-module.exports.getCalendarEvents = async (event) => {
-  const oAuth2Client = new google.auth.OAuth2(
-    client_id,
-    client_secret,
-    redirect_uris[0]
-  );
-
-  const access_token = decodeURIComponent(
-    `${event.pathParameters.access_token}`
-  );
-  oAuth2Client.setCredentials({ access_token });
-
-  return new Promise((resolve, reject) => {
-    calendar.events.list(
-      {
-        calendarId: calendar_id,
-        auth: oAuth2Client,
-        timeMin: new Date().toISOString(),
-        singleEvents: true,
-        orderBy: "startTime",
-      },
-      (error, response) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(response);
-        }
-      }
-    );
-  })
-    .then((results) => {
-      return {
-        statusCode: 200,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify({ events: results.data.items }),
-      };
-    })
-    .catch((err) => {
-      console.log(err);
-      return {
-        statusCode: 500,
-        body: JSON.stringify(err),
-      };
-    });
 };
