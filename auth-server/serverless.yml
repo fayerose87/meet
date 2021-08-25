@@ -1,5 +1,3 @@
-org: fayerose87
-app: auth-server
 service: auth-server
 
 frameworkVersion: '2'
