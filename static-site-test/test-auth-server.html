@@ -92,18 +92,18 @@
       const events = document.getElementById("events");
       const getCalendarEvents = "https://0n2w0xz9h3.execute-api.us-west-2.amazonaws.com/dev/api/get-events"
 
-            getEvents.onclick = function () {
-                const { access_token } = JSON.parse(accessTokenElement.innerText)
-                const eventRequest = getCalendarEvents + "/" + access_token;
-
-                fetch(eventRequest)
-                    .then(function (response) {
-                        return response.json();
-                    })
-                    .then(function (json) {
-                        events.innerText = JSON.stringify(json, null, 2);
-                    });
-            };
+      getEvents.onclick = function () {
+       const { access_token } = JSON.parse(accessTokenElement.innerText)
+       const eventRequest = getCalendarEvents + "/" + access_token;
+       
+       fetch(eventRequest)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (json) {
+          events.innerText = JSON.stringify(json, null, 2);
+        });
+      };
 
     </script>
   </body>
