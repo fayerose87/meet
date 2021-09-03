@@ -48,7 +48,6 @@ const token = await getAccessToken();
     removeQuery();
     const url = 'https://0n2w0xz9h3.execute-api.us-west-2.amazonaws.com/dev/api/get-events/' + token;
     const result = await axios.get(url);
-    const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
       localStorage.setItem("lastEvents", JSON.stringify(result.data));
@@ -78,17 +77,17 @@ const token = await getAccessToken();
 }
  
 const getToken = async (code) => {
-   const encodeCode = encodeURIComponent(code);
-   const { access_token } = await fetch('https://0n2w0xz9h3.execute-api.us-west-2.amazonaws.com/dev/api/token' + '/' + encodeCode)
-    .then((res) => {
-      return res.json();
-    })
-    .catch((eror) => error);
-
-  access_token && localStorage.setItem('access_token', access_token);
-
-  return access_token;
-};
+  const encodeCode = encodeURIComponent(code);
+  const { access_token } = await fetch('https://0n2w0xz9h3.execute-api.us-west-2.amazonaws.com/dev/api/token' + '/' + encodeCode)
+     .then((res) => {
+       return res.json();
+     })
+     .catch((error) => error);
+ 
+   access_token && localStorage.setItem("access_token", access_token);
+ 
+   return access_token;
+ };
 
 export const extractLocations = (events) => {
   var extractLocations = events.map((event) => event.location);
