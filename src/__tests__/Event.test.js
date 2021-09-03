@@ -22,14 +22,14 @@ describe("<Event /> component", () => {
   });
 
   test("show more button is visible", () => {
-    expect(EventWrapper.find(".show-details-btn")).toHaveLength(1);
+    expect(EventWrapper.find(".details-btn")).toHaveLength(1);
   });
 
  test("change show-state on click", () => {
    EventWrapper.setState({
      show: false,
     });
-    EventWrapper.find(".show-details-btn").simulate("click");
+    EventWrapper.find(".details-btn").simulate("click");
     expect(EventWrapper.state("show")).toEqual(true);
   });
 
@@ -45,7 +45,7 @@ describe("<Event /> component", () => {
       show: false,
     });
 
-    EventWrapper.find(".show-details-btn").simulate("click");
+    EventWrapper.find(".details-btn").simulate("click");
     expect(EventWrapper.find(".event-details")).toHaveLength(1);
   });
 
@@ -54,7 +54,7 @@ describe("<Event /> component", () => {
       show: true,
     });
 
-    EventWrapper.find(".hide-details-btn").simulate("click");
+    EventWrapper.find(".details-btn").simulate("click");
     expect(EventWrapper.find(".event-details")).toHaveLength(0);
   });
 });
