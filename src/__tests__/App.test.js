@@ -82,5 +82,6 @@ describe('<App /> integration', () => {
     expect(AppWrapper.state('numberOfEvents')).toBe('10');
 
     AppWrapper.unmount();
-});
+  });
+
 });
