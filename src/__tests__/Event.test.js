@@ -22,15 +22,15 @@ describe("<Event /> component", () => {
   });
 
   test("show more button is visible", () => {
-    expect(EventWrapper.find(".details-btn")).toHaveLength(1);
+    expect(EventWrapper.find(".show-details-btn")).toHaveLength(1);
   });
 
  test("change show-state on click", () => {
    EventWrapper.setState({
      show: false,
     });
-    EventWrapper.find(".details-btn").simulate("click");
-    expect(EventWrapper.state("show")).toEqual(true);
+    EventWrapper.find(".show-details-btn").simulate("click");
+    expect(EventWrapper.state("show")).toBe(true);
   });
 
   test("hide details by default", () => {
@@ -44,8 +44,7 @@ describe("<Event /> component", () => {
     EventWrapper.setState({
       show: false,
     });
-
-    EventWrapper.find(".details-btn").simulate("click");
+    EventWrapper.find(".show-details-btn").simulate("click");
     expect(EventWrapper.find(".event-details")).toHaveLength(1);
   });
 
@@ -53,8 +52,7 @@ describe("<Event /> component", () => {
     EventWrapper.setState({
       show: true,
     });
-
-    EventWrapper.find(".details-btn").simulate("click");
+    EventWrapper.find(".hide-details-btn").simulate("click");
     expect(EventWrapper.find(".event-details")).toHaveLength(0);
   });
 });

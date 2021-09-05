@@ -23,12 +23,12 @@ handleButton = () => {
           <p className="event-details">{event.description}</p>
         )}
         {this.state.show === false && (
-          <button className="details-btn" onClick={() => this.handleButton()}>
+          <button className="show-details-btn" onClick={() => this.handleButton()}>
             Show details
           </button>
         )}
         {this.state.show === true && (
-          <button className="details-btn" onClick={() => this.handleButton()}>
+          <button className="hide-details-btn" onClick={() => this.handleButton()}>
             Hide details
           </button>
         )}
