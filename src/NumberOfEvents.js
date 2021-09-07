@@ -25,7 +25,7 @@ render() {
          className='number-events' 
          value={numberOfEvents}
          onChange={(e) => this.handleInputChanged(e)} 
-         placeholder={numberOfEvents}
+         placeholder="#"
         />
       </div>
     );

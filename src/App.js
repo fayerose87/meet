@@ -57,7 +57,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <Navbar bg="light" variant="light">
+       <Navbar className="nav" bg="light" variant="light">
          <Container>
            <Navbar.Brand href="/">
              <img
