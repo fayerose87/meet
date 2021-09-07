@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import moment from 'moment';
+import { Container } from "react-bootstrap";
 
 class Event extends Component {
   state = {
@@ -9,31 +11,33 @@ handleButton = () => {
   this.setState((prevState) => ({ show: !prevState.show }));
 };
 
-  render() {
-    const { event } = this.props;
+render() {
+  const { event } = this.props;
 
-    return (
-      <div className="event">
-        <h1 className="event-title">{event.summary}</h1>
-        <p className="event-location">{event.location}</p>
-        <p className="event-date">
-          {event.start.dateTime} - {event.start.timeZone}
-        </p>
-        {this.state.show === true && (
-          <p className="event-details">{event.description}</p>
-        )}
-        {this.state.show === false && (
-          <button className="show-details-btn" onClick={() => this.handleButton()}>
-            Show details
-          </button>
-        )}
-        {this.state.show === true && (
-          <button className="hide-details-btn" onClick={() => this.handleButton()}>
-            Hide details
-          </button>
-        )}
-      </div>
-    );
-  }
+  const eventStart = moment(event.start.dateTime).format("MMMM Do YYYY, HH:mm a")
+
+  return (
+    <Container className="event-listings">
+    <div className="event">
+      <h1 className="event-title">{event.summary}</h1>
+      <p className="event-date font-weight-bold">{`${eventStart}`}</p>
+      <p className="event-location text-muted">{event.location}</p>
+      {this.state.show === true && (
+        <p className="event-details">{event.description}</p>
+      )}
+      {this.state.show === false && (
+        <button className="show-details-btn" onClick={() => this.handleButton()}>
+          Show details
+        </button>
+      )}
+      {this.state.show === true && (
+        <button className="hide-details-btn" onClick={() => this.handleButton()}>
+          Hide details
+        </button>
+      )}
+    </div>
+    </Container>
+  );
+}
 }
 export default Event;

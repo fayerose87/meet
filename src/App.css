@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);.App {
   text-align: center;
-  padding: 2% 5%;
 }
 
 .App * {
@@ -46,6 +45,7 @@ input[type="number"] {
   max-width: 300px;
   margin: auto;
   position: relative;
+  padding-right: 10px;
 }
 
 .suggestions {
@@ -75,21 +75,43 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
+.EventList {
+  padding-top: 20px;
+}
+
 .event {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
+  padding: 15px 15px 35px;
+  margin: auto;
   text-align: left;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 10px;
   position: relative;
 }
 
+.event:hover {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.event-date {
+  color: #006c9a;
+}
+
+.event-listings {
+  padding-bottom: 15px;
+}
+
+.event-details {
+  margin-bottom: 20px;
+}
+
 .hide-details-btn, .show-details-btn {
+  background-color: #006c9a;
+  color: #FFF;
   position: absolute;
-  right: 5px;
-  bottom: 5px;
+  right: 15px;
+  bottom: 15px;
   padding: 5px 8px;
-  border-radius: 4px;
+  border-radius: 10px;
   outline: none;
   cursor: pointer;
 }
@@ -117,6 +139,10 @@ input[type="number"] {
   width: 200px;
   margin: 20px auto;
   text-align: center;
+}
+
+#number-of-events {
+  width: 60px;
 }
 
 .button-wrapper {

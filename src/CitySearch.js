@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Row } from "react-bootstrap";
 
 class CitySearch extends Component {
   state = {
@@ -29,6 +30,7 @@ class CitySearch extends Component {
 
   render() {
     return (
+      <Row>
       <div className="CitySearch">
         <input 
           type="text"
@@ -46,6 +48,7 @@ class CitySearch extends Component {
           </li>
         </ul>
       </div>
+      </Row>
     );
   }
 }

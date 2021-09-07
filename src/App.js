@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import { Container, Navbar } from "react-bootstrap";
 import "./App.css";
 import EventList from "./EventList"; 
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
 import { extractLocations, getEvents } from './api';
 import './nprogress.css';
+import logo from './devmeet_logo.png';
+import header from './header_image.jpg';
 
 class App extends Component {
   state = {
@@ -54,12 +57,30 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-         <h1 className="title">
-          Meet App
-        </h1>
-        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} events={this.state.events}/>
-        <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} />
-        <EventList events={this.state.events}/>
+       <Navbar bg="light" variant="light">
+         <Container>
+           <Navbar.Brand href="/">
+             <img
+              alt="devMeet logo"
+              src={logo}
+              width="100%"
+              height="30"
+              className="d-inline-block align-top"/>
+            </Navbar.Brand>
+             <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} events={this.state.events}/>
+          </Container>
+      </Navbar>
+      <img 
+        alt="header"
+        src={header}
+        width="100%"
+        height="100%"
+        className="d-inline-block align-top"/>
+
+        <Container fluid>
+          <EventList events={this.state.events}/>
+          <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} />
+        </Container>
       </div>
     );
   }

@@ -18,7 +18,7 @@ render() {
     const numberOfEvents = this.state.numberOfEvents;
     return (
       <div className="NumberOfEvents">
-        <label className="number-label">Select Number of Events</label>
+        <label className="number-label">Select Number of Events to View:</label>
         <input
          type='number' 
          id='number-of-events' 
