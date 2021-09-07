@@ -145,6 +145,10 @@ input[type="number"] {
   text-align: center;
 }
 
+.number-label {
+  padding-right: 10px;
+}
+
 #number-of-events {
   width: 60px;
 }
