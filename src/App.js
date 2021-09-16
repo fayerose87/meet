@@ -57,15 +57,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <Navbar className="nav" bg="light" variant="light">
-         <Container>
+       <Navbar className="nav" expand="lg" bg="light" variant="light">
+         <Container className="justify-content-between">
            <Navbar.Brand href="/">
              <img
               alt="devMeet logo"
               src={logo}
-              width="100%"
-              height="30"
-              className="d-inline-block align-top"/>
+              width="183px"
+              height="30px"
+              className="d-inline-block"/>
             </Navbar.Brand>
              <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} events={this.state.events}/>
           </Container>
