@@ -63,8 +63,8 @@ class App extends Component {
              <img
               alt="devMeet logo"
               src={logo}
-              width="183px"
-              height="30px"
+              width="100%"
+              height="35px"
               className="d-inline-block"/>
             </Navbar.Brand>
              <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} events={this.state.events}/>
