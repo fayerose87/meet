@@ -59,7 +59,7 @@ class App extends Component {
       <div className="App">
        <Navbar className="nav" expand="lg" bg="light" variant="light">
          <Container className="justify-content-between">
-           <Navbar.Brand href="/">
+           <Navbar.Brand className="mx-auto mx-lg-0" href="/">
              <img
               alt="devMeet logo"
               src={logo}

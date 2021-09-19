@@ -104,6 +104,10 @@ input[type="number"] {
   padding-bottom: 15px;
 }
 
+.event-location {
+  padding-bottom: 20px;
+}
+
 .event-details {
   margin-bottom: 20px;
 }
@@ -111,13 +115,14 @@ input[type="number"] {
 .hide-details-btn, .show-details-btn {
   background-color: #006c9a;
   color: #FFF;
-  position: absolute;
+  position: relative;
   right: 15px;
   bottom: 15px;
   padding: 5px 8px;
   border-radius: 10px;
   outline: none;
   cursor: pointer;
+  float: right;
 }
 
 .name {
@@ -231,8 +236,6 @@ input[type="number"] {
   font-family: "Roboto";
 }
 
-
-
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
     flex-direction: row;
@@ -241,6 +244,10 @@ input[type="number"] {
     flex-basis: 50%;
     max-width: 50%;
     min-width: auto;
+    margin: 0 auto;
+  }
+
+  .CitySearch {
     margin: 0 auto;
   }
 }

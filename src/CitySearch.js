@@ -30,7 +30,7 @@ class CitySearch extends Component {
 
   render() {
     return (
-      <Row>
+      <Row className="mx-auto mx-lg-0">
       <div className="CitySearch">
         <input 
           type="text"
