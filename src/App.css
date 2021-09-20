@@ -76,7 +76,8 @@ input[type="number"] {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
+  background-color: #006c9a;
+  color: #FFF;
 }
 
 .EventList {
@@ -171,8 +172,7 @@ input[type="number"] {
 }
 
 .Alert {
-  position: fixed;
-  top: 20px;
+  font-style: italic;
 }
 
 .data-vis-wrapper {
