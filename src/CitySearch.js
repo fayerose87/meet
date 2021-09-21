@@ -47,7 +47,8 @@ class CitySearch extends Component {
           placeholder="Search for a city"
           value={this.state.query}
           onChange={this.handleInputChanged}
-          onFocus={() => { this.setState({ showSuggestions: true }) }} />
+          onFocus={() => { this.setState({ showSuggestions: true }) }}
+          onBlur={() => { this.setState({ showSuggestions: false }) }} />
         <ul className="suggestions" style={this.state.showSuggestions ? {}: { display: 'none' }}>
           <li><InfoAlert text={this.state.infoText} /></ li>
           {this.state.suggestions.map((suggestion) => (
