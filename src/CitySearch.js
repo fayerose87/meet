@@ -32,7 +32,8 @@ class CitySearch extends Component {
   handleItemClicked = (suggestion) => {
     this.setState({
       query: suggestion,
-      showSuggestions: false
+      showSuggestions: false,
+      errorText:''
     });
   
     this.props.updateEvents(suggestion);
@@ -52,9 +53,9 @@ class CitySearch extends Component {
         <ul className="suggestions" style={this.state.showSuggestions ? {}: { display: 'none' }}>
           <li><InfoAlert text={this.state.infoText} /></ li>
           {this.state.suggestions.map((suggestion) => (
-          <li key={suggestion} onClick={() => this.handleItemClicked(suggestion)}>{suggestion}</li>
+          <li key={suggestion} onMouseDown={() => this.handleItemClicked(suggestion)}>{suggestion}</li>
           ))}
-          <li onClick={() => this.handleItemClicked("all")}>
+          <li onMouseDown={() => this.handleItemClicked("all")}>
             <b>See all cities</b>
           </li>
         </ul>
