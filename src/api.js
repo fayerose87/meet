@@ -26,13 +26,22 @@ const checkToken = async (accessToken) => {
   return result;
 };
 
+/**
+ *
+ * @param {*} events:
+ * The following function is to be in api.js.
+ * This function takes an events array, then uses map to create a new array with only locations.
+ * Lastly, we remove all duplicates by creating another new array by using the spread operator and spreading a Set.
+ * The Set removes all duplicates from the array
+ */
+
 const extractLocations = (events) => {
   var extractLocations = events.map((event) => event.location);
   var locations = [...new Set(extractLocations)];
   return locations;
 };
 
-const getEvents = async (max_results = 32) => {
+const getEvents = async () => {
   NProgress.start();
 
   if (window.location.href.startsWith('http://localhost')) {
