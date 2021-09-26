@@ -15,7 +15,8 @@ class App extends Component {
     numberOfEvents: 32,
     events: [],
     locations: [],
-    currentLocation: 'all'
+    currentLocation: 'all',
+    offlineAlert:''
   }
 
   updateEvents = (location, numberOfEvents) => {
@@ -42,6 +43,18 @@ class App extends Component {
   componentDidMount() {
     const { numberOfEvents } = this.state;
     this.mounted = true;
+
+    if (navigator.onLine === false) {
+      this.setState({
+        offlineAlert:
+          'App is offline, list may be not up to date',
+      });
+    } else {
+      this.setState({
+        offlineAlert: '',
+      });
+    }
+
     getEvents().then((events) => {
       if (this.mounted) {
       this.setState({ 
@@ -58,6 +71,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <OfflineAlert text={this.state.offlineAlert}/>
        <Navbar className="nav" expand="lg" bg="light" variant="light">
          <Container className="justify-content-between">
            <Navbar.Brand className="mx-auto mx-lg-0" href="/">
@@ -68,7 +82,6 @@ class App extends Component {
               height="35px"
               className="d-inline-block"/>
             </Navbar.Brand>
-            {!navigator.onLine ? <OfflineAlert text={"You are currently offline. Results may not be current."} /> : ""}
              <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} events={this.state.events}/>
           </Container>
       </Navbar>
