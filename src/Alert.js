@@ -43,7 +43,7 @@ class OfflineAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'white';
-    this.backgroundColor = '#006c9a';
+    this.backgroundColor = 'blue';
   }
 }
 
