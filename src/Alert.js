@@ -4,13 +4,13 @@ class Alert extends Component {
   constructor(props) {
     super(props);
     this.color = null;
-    this.background = null;
+    this.backgroundColor = null;
   }
 
   getStyle = () => {
     return {
       color: this.color,
-      background: this.background
+      background: this.backgroundColor
     };
   }
 
@@ -43,7 +43,7 @@ class OfflineAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'white';
-    this.background = '#006c9a';
+    this.backgroundColor = '#006c9a';
   }
 }
 
