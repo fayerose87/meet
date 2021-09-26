@@ -67,6 +67,7 @@ class App extends Component {
   }
 
   render() {
+    const { offlineAlert } = this.state;
     return (
       <div className="App">
       <OfflineAlert text={offlineAlert}/>
