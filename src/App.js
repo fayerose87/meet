@@ -52,7 +52,7 @@ class App extends Component {
       if (!navigator.onLine) {
         this.setState({
           offlineAlert:
-            'Offline mode. To make sure you are viewing the most current information, please connect to the internet.',
+            'Offline mode. To view the most current information, please connect to the internet.',
         });
       } else {
         this.setState({
@@ -70,7 +70,6 @@ class App extends Component {
     const { offlineAlert } = this.state;
     return (
       <div className="App">
-      <OfflineAlert text={offlineAlert}/>
        <Navbar className="nav" expand="lg" bg="light" variant="light">
          <Container className="justify-content-between">
            <Navbar.Brand className="mx-auto mx-lg-0" href="/">
@@ -90,6 +89,8 @@ class App extends Component {
         width="100%"
         height="100%"
         className="d-inline-block align-top"/>
+
+      <OfflineAlert text={offlineAlert}/>
 
         <Container fluid>
           <EventList events={this.state.events}/>
