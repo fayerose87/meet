@@ -16,7 +16,6 @@ class App extends Component {
     events: [],
     locations: [],
     currentLocation: 'all',
-    offlineAlert:''
   }
 
   updateEvents = (location, numberOfEvents) => {
@@ -43,23 +42,22 @@ class App extends Component {
   componentDidMount() {
     const { numberOfEvents } = this.state;
     this.mounted = true;
-
-    if (navigator.onLine === false) {
-      this.setState({
-        offlineAlert:
-          'App is offline, list may be not up to date',
-      });
-    } else {
-      this.setState({
-        offlineAlert: '',
-      });
-    }
-
     getEvents().then((events) => {
       if (this.mounted) {
       this.setState({ 
         events: events.slice(0, numberOfEvents), 
         locations: extractLocations(events) });
+      }
+
+      if (!navigator.onLine) {
+        this.setState({
+          offlineAlert:
+            'Offline mode. To make sure you are viewing the most current information, please connect to the internet.',
+        });
+      } else {
+        this.setState({
+          offlineAlert: '',
+        });
       }
     });
   }
@@ -71,7 +69,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <OfflineAlert text={this.state.offlineAlert}/>
+      <OfflineAlert text={offlineAlert}/>
        <Navbar className="nav" expand="lg" bg="light" variant="light">
          <Container className="justify-content-between">
            <Navbar.Brand className="mx-auto mx-lg-0" href="/">
