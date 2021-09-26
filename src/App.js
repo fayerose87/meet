@@ -8,6 +8,7 @@ import { extractLocations, getEvents } from './api';
 import './nprogress.css';
 import logo from './devmeet_logo.png';
 import header from './header_image.jpg';
+import { OfflineAlert } from './Alert';
 
 class App extends Component {
   state = {
@@ -67,6 +68,7 @@ class App extends Component {
               height="35px"
               className="d-inline-block"/>
             </Navbar.Brand>
+            {!navigator.onLine ? <OfflineAlert text={"You are currently offline. Results may not be current."} /> : ""}
              <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} events={this.state.events}/>
           </Container>
       </Navbar>
