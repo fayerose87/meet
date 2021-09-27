@@ -4,11 +4,12 @@ import "./App.css";
 import EventList from "./EventList"; 
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
-import { extractLocations, getEvents } from './api';
+import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import './nprogress.css';
 import logo from './devmeet_logo.png';
 import header from './header_image.jpg';
 import { OfflineAlert } from './Alert';
+import WelcomeScreen from './WelcomeScreen';
 
 class App extends Component {
   state = {
@@ -16,28 +17,7 @@ class App extends Component {
     events: [],
     locations: [],
     currentLocation: 'all',
-    showWelcomeScreen: undefined
-  }
-
-  updateEvents = (location, numberOfEvents) => {
-    getEvents().then((events) => {
-      const locationEvents = (location === 'all')
-      ?
-        events.slice(0, numberOfEvents)
-      :
-        events.filter((event) => event.location === location);
-        this.setState({
-        events: locationEvents.slice(0, numberOfEvents),
-        currentLocation: location,
-        numberOfEvents: numberOfEvents
-       });
-    });
-  }
-
-  updateNumberOfEvents(eventNumber) {
-    this.setState({ numberOfEvents: eventNumber });
-    const { currentLocation } = this.state;
-    this.updateEvents(currentLocation, eventNumber);
+    showWelcomeScreen: undefined,
   }
 
   async componentDidMount() {
@@ -72,6 +52,31 @@ class App extends Component {
   componentWillUnmount(){
     this.mounted = false;
   }
+
+
+  updateEvents = (location, numberOfEvents) => {
+    getEvents().then((events) => {
+      const locationEvents = (location === 'all')
+      ?
+        events.slice(0, numberOfEvents)
+      :
+        events.filter((event) => event.location === location);
+        this.setState({
+        events: locationEvents.slice(0, numberOfEvents),
+        currentLocation: location,
+        numberOfEvents: numberOfEvents
+       });
+    });
+  }
+
+  updateNumberOfEvents(eventNumber) {
+    this.setState({ numberOfEvents: eventNumber });
+    const { currentLocation } = this.state;
+    this.updateEvents(currentLocation, eventNumber);
+  }
+
+
+
 
   render() {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
