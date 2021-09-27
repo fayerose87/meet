@@ -16,6 +16,7 @@ class App extends Component {
     events: [],
     locations: [],
     currentLocation: 'all',
+    showWelcomeScreen: undefined
   }
 
   updateEvents = (location, numberOfEvents) => {
@@ -39,15 +40,21 @@ class App extends Component {
     this.updateEvents(currentLocation, eventNumber);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { numberOfEvents } = this.state;
     this.mounted = true;
-    getEvents().then((events) => {
-      if (this.mounted) {
-      this.setState({ 
-        events: events.slice(0, numberOfEvents), 
-        locations: extractLocations(events) });
-      }
+    const accessToken = localStorage.getItem('access_token');
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    if ((code || isTokenValid) && this.mounted) {
+      getEvents().then((events) => {
+        if (this.mounted) {
+          this.setState({ 
+            events: events.slice(0, numberOfEvents), 
+            locations: extractLocations(events) });
+        }
 
       if (!navigator.onLine) {
         this.setState({
@@ -60,13 +67,14 @@ class App extends Component {
         });
       }
     });
-  }
+  }}
 
   componentWillUnmount(){
     this.mounted = false;
   }
 
   render() {
+    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
     const { offlineAlert } = this.state;
     return (
       <div className="App">
@@ -96,6 +104,7 @@ class App extends Component {
           <EventList events={this.state.events}/>
           <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} />
         </Container>
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
       </div>
     );
   }
