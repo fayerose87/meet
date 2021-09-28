@@ -127,8 +127,8 @@ class App extends Component {
       </ResponsiveContainer>
 
         <Container fluid>
-          <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} />
           <EventList events={this.state.events}/>
+          <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} />
         </Container>
 
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
