@@ -79,8 +79,8 @@ class App extends Component {
 
 
   render() {
-    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
     const { offlineAlert } = this.state;
+    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
     return (
       <div className="App">
        <Navbar className="nav" expand="lg" bg="light" variant="light">
@@ -106,8 +106,8 @@ class App extends Component {
       <OfflineAlert text={offlineAlert}/>
 
         <Container fluid>
+          <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} /> 
           <EventList events={this.state.events}/>
-          <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} />
         </Container>
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
       </div>
