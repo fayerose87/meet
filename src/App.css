@@ -1,9 +1,19 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700');
 
 .App * {
   box-sizing: border-box;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+p {
+  font-weight: 300;
 }
 
 ul {
