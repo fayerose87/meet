@@ -123,7 +123,7 @@ class App extends Component {
 
       <Container fluid>
       <>
-      <h1>Welcome, Developers!</h1>
+      <h1 className="font-weight-bold">Welcome, Developers! We're glad you're here!</h1>
       <p>Use the devMeet app to find and attend an event near you to meet other developers, make friends, find support, grow a business, and explore your interests.</p>
       <Button variant="primary" onClick={() => this.handleModalShowHide()}>
         View data visualization
@@ -154,7 +154,7 @@ class App extends Component {
       </Modal>
       </>
 
-          <h2>Upcoming Events</h2>
+          <h2 className="font-weight-bold">Upcoming Events</h2>
           <EventList events={this.state.events}/>
           <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} />
         </Container>

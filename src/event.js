@@ -19,7 +19,7 @@ render() {
   return (
     <Container className="event-listings">
     <div className="event">
-      <h3 className="event-title">{event.summary}</h3>
+      <h3 className="event-title font-weight-bold">{event.summary}</h3>
       <p className="event-date font-weight-bold">{`${eventStart}`}</p>
       <p className="event-location text-muted">{event.location}</p>
       {this.state.show === true && (
