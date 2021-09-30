@@ -1,19 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700');
 
+.App {
+  text-align: center;
+
 .App * {
   box-sizing: border-box;
 }
 
 h1 {
   font-weight: 500;
+  text-align: left;
 }
 
 h2 {
   font-weight: 400;
+  text-align: left;
 }
 
 p {
   font-weight: 300;
+  text-align: left;
 }
 
 ul {
