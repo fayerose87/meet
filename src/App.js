@@ -122,23 +122,25 @@ class App extends Component {
       <OfflineAlert text={offlineAlert}/>
 
       <>
+      <h1>Welcome, Developers!</h1>
+      <p>Use the devMeet app to find and attend an event near you to meet other developers, make friends, find support, grow a business, and explore your interests.</p>
       <Button variant="primary" onClick={() => this.handleModalShowHide()}>
         View data visualization
       </Button>
-      <Modal>
-      <Modal.Header closeButton>
+      <Modal show={this.state.showHide}>
+      <Modal.Header closeButton onClick={() => this.handleModalShowHide()}>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
       <Modal.Body>
-      <ResponsiveContainer height={400} >
-        <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
-          <CartesianGrid />
-          <XAxis type="category" dataKey="city" name="city" />
-          <YAxis type="number" dataKey="number" name="number of events" />
-          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-           <Scatter data={this.getData()} fill="#006c9a" />
-        </ScatterChart>
-      </ResponsiveContainer>
+        <ResponsiveContainer height={400} >
+          <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
+            <CartesianGrid />
+            <XAxis type="category" dataKey="city" name="city" />
+            <YAxis type="number" dataKey="number" name="number of events" />
+            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+            <Scatter data={this.getData()} fill="#006c9a" />
+          </ScatterChart>
+        </ResponsiveContainer>
       </Modal.Body>
       <Modal.Footer>
           <Button variant="secondary" onClick={() => this.handleModalShowHide()}>
@@ -152,6 +154,7 @@ class App extends Component {
       </>
 
         <Container fluid>
+          <h2>Upcoming Events</h2>
           <EventList events={this.state.events}/>
           <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} />
         </Container>
