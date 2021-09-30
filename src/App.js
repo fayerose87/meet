@@ -121,6 +121,7 @@ class App extends Component {
 
       <OfflineAlert text={offlineAlert}/>
 
+      <Container fluid>
       <>
       <h1>Welcome, Developers!</h1>
       <p>Use the devMeet app to find and attend an event near you to meet other developers, make friends, find support, grow a business, and explore your interests.</p>
@@ -153,7 +154,6 @@ class App extends Component {
       </Modal>
       </>
 
-        <Container fluid>
           <h2>Upcoming Events</h2>
           <EventList events={this.state.events}/>
           <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} />
