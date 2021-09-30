@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Navbar } from "react-bootstrap";
+import { Container, Navbar, Button, Modal } from "react-bootstrap";
 import "./App.css";
 import EventList from "./EventList"; 
 import CitySearch from "./CitySearch";
@@ -19,7 +19,13 @@ class App extends Component {
     locations: [],
     currentLocation: 'all',
     showWelcomeScreen: undefined,
+    showHide : false
   }
+
+  handleModalShowHide() {
+    this.setState({ showHide: !this.state.showHide })
+}
+
 
   async componentDidMount() {
     const { numberOfEvents } = this.state;
@@ -86,10 +92,9 @@ class App extends Component {
     return data;
   };
 
-
-
   render() {
     const { offlineAlert } = this.state;
+
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
     return (
       <div className="App">
@@ -116,15 +121,35 @@ class App extends Component {
 
       <OfflineAlert text={offlineAlert}/>
 
+      <>
+      <Button variant="primary" onClick={() => this.handleModalShowHide()}>
+        View data visualization
+      </Button>
+      <Modal>
+      <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+      <Modal.Body>
       <ResponsiveContainer height={400} >
         <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
           <CartesianGrid />
           <XAxis type="category" dataKey="city" name="city" />
           <YAxis type="number" dataKey="number" name="number of events" />
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-           <Scatter data={this.getData()} fill="#8884d8" />
+           <Scatter data={this.getData()} fill="#006c9a" />
         </ScatterChart>
       </ResponsiveContainer>
+      </Modal.Body>
+      <Modal.Footer>
+          <Button variant="secondary" onClick={() => this.handleModalShowHide()}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={() => this.handleModalShowHide()}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      </>
 
         <Container fluid>
           <EventList events={this.state.events}/>
