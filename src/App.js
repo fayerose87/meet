@@ -131,7 +131,7 @@ class App extends Component {
       <Container>
 
       <div className="introduction">
-        <h1 className="font-weight-bold">Welcome, Developers!</h1>
+        <h1 className="font-weight-bold">Welcome, Developers! We&apos;e glad you&apos;re here!</h1>
         <p>Find an event near you and meet other developers, make friends, find support, grow a business, or explore your interests. Interested in which cities have the most events?
        <span className="font-weight-bold chart-link" onClick={() => this.handleScatterShowHide()}> Check out this chart!</span></p>
        <p>There&apos;s something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS. <span className="font-weight-bold chart-link" onClick={() => this.handlePieShowHide()}> Check out the most popular events.</span></p>
