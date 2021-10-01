@@ -123,17 +123,17 @@ class App extends Component {
 
       <Container fluid>
       <>
-      <h1 className="font-weight-bold">Welcome, Developers! We're glad you're here!</h1>
-      <p>Use the devMeet app to find and attend an event near you to meet other developers, make friends, find support, grow a business, and explore your interests.</p>
-      <Button variant="primary" onClick={() => this.handleModalShowHide()}>
-        View data visualization
-      </Button>
+      <h1 className="font-weight-bold">Welcome, Developers!</h1>
+      <p>Use the devMeet app to find and attend an event near you to meet other developers, make friends, find support, grow a business, and explore your interests. Interested in which cities have the most events?
+      <a className="font-weight-bold" onClick={() => this.handleModalShowHide()}>
+        Check out this chart!
+      </a></p>
       <Modal show={this.state.showHide}>
       <Modal.Header closeButton onClick={() => this.handleModalShowHide()}>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
       <Modal.Body>
-        <ResponsiveContainer height={400} >
+        <ResponsiveContainer height={200} >
           <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
             <CartesianGrid />
             <XAxis type="category" dataKey="city" name="city" />
