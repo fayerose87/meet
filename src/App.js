@@ -20,16 +20,17 @@ class App extends Component {
     locations: [],
     currentLocation: 'all',
     showWelcomeScreen: undefined,
-    showHide : false
+    scatterShowHide : false
+    pieShowHide : false
+  }
+
+  handleScatterModalShowHide() {
+    this.setState({ scatterShowHide: !this.state.scatterShowHide })
   }
 
   handlePieModalShowHide() {
-    this.setState({ showHide: !this.state.showHide })
-}
-
-handleScatterModalShowHide() {
-  this.setState({ showHide: !this.state.showHide })
-}
+    this.setState({ pieShowHide: !this.state.pieShowHide })
+  }
 
 
   async componentDidMount() {
@@ -159,14 +160,14 @@ handleScatterModalShowHide() {
 
         {/*Modal for Pie Chart*/}
         <Modal size="lg" show={this.state.showHide}>
-        <Modal.Header closeButton onClick={() => this.handleScatterModalShowHide()}>
+        <Modal.Header closeButton onClick={() => this.handlePieModalShowHide()}>
             <Modal.Title>Most Popular Events</Modal.Title>
           </Modal.Header>
         <Modal.Body>
           <EventGenre events={this.state.events} />
         </Modal.Body>
         <Modal.Footer>
-            <Button variant="secondary" onClick={() => this.handleScatterModalShowHide()}>
+            <Button variant="secondary" onClick={() => this.handlePieModalShowHide()}>
               Close
             </Button>
           </Modal.Footer>
