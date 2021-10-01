@@ -4,6 +4,7 @@ import "./App.css";
 import EventList from "./EventList"; 
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
+import EventGenre from './EventGenre';
 import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import './nprogress.css';
 import logo from './devmeet_logo.png';
@@ -22,8 +23,12 @@ class App extends Component {
     showHide : false
   }
 
-  handleModalShowHide() {
+  handlePieModalShowHide() {
     this.setState({ showHide: !this.state.showHide })
+}
+
+handleScatterModalShowHide() {
+  this.setState({ showHide: !this.state.showHide })
 }
 
 
@@ -126,13 +131,16 @@ class App extends Component {
       <h1 className="font-weight-bold">Welcome, Developers!</h1>
       <div className="introduction">
         <p>Find an event near you and meet other developers, make friends, find support, grow a business, or explore your interests. Interested in which cities have the most events?
-       <span className="font-weight-bold chart-link" onClick={() => this.handleModalShowHide()}> Check out this chart!</span></p>
+       <span className="font-weight-bold chart-link" onClick={() => this.handleScatterModalShowHide()}> Check out this chart!</span></p>
+       <p>There's something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS. <span className="font-weight-bold chart-link" onClick={() => this.handlePieModalShowHide()}> Check out the most popular events.</span></p>
+        
+        {/*Modal for Scatter Chart*/}
         <Modal size="lg" show={this.state.showHide}>
-        <Modal.Header closeButton onClick={() => this.handleModalShowHide()}>
+        <Modal.Header closeButton onClick={() => this.handleScatterModalShowHide()}>
             <Modal.Title>Number of Events by City</Modal.Title>
           </Modal.Header>
         <Modal.Body>
-          <ResponsiveContainer height={200} >
+          <ResponsiveContainer height={400} >
             <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
               <CartesianGrid />
               <XAxis type="category" dataKey="city" name="city" />
@@ -143,11 +151,28 @@ class App extends Component {
           </ResponsiveContainer>
         </Modal.Body>
         <Modal.Footer>
-            <Button variant="secondary" onClick={() => this.handleModalShowHide()}>
+            <Button variant="secondary" onClick={() => this.handleScatterModalShowHide()}>
               Close
             </Button>
           </Modal.Footer>
         </Modal>
+
+        {/*Modal for Pie Chart*/}
+        <Modal size="lg" show={this.state.showHide}>
+        <Modal.Header closeButton onClick={() => this.handleScatterModalShowHide()}>
+            <Modal.Title>Number of Events by City</Modal.Title>
+          </Modal.Header>
+        <Modal.Body>
+          <EventGenre/>
+        </Modal.Body>
+        <Modal.Footer>
+            <Button variant="secondary" onClick={() => this.handleScatterModalShowHide()}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+        <EventGenre events={this.state.events} />
       </div>
 
           <h2 className="font-weight-bold">Upcoming Events</h2>
