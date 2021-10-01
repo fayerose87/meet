@@ -20,8 +20,8 @@ class App extends Component {
     locations: [],
     currentLocation: 'all',
     showWelcomeScreen: undefined,
-    scatterShowHide : false
-    pieShowHide : false
+    scatterShowHide : false,
+    pieShowHide : false,
   }
 
   handleScatterModalShowHide() {
