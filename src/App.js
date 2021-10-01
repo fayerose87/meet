@@ -163,7 +163,7 @@ handleScatterModalShowHide() {
             <Modal.Title>Number of Events by City</Modal.Title>
           </Modal.Header>
         <Modal.Body>
-          <EventGenre/>
+          <EventGenre events={this.state.events} />
         </Modal.Body>
         <Modal.Footer>
             <Button variant="secondary" onClick={() => this.handleScatterModalShowHide()}>
@@ -172,7 +172,6 @@ handleScatterModalShowHide() {
           </Modal.Footer>
         </Modal>
 
-        <EventGenre events={this.state.events} />
       </div>
 
           <h2 className="font-weight-bold">Upcoming Events</h2>
