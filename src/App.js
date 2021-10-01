@@ -153,7 +153,7 @@ class App extends Component {
           </ResponsiveContainer>
         </Modal.Body>
         <Modal.Footer>
-            <Button variant="secondary" onClick={() => this.handleScatterhowHide()}>
+            <Button variant="secondary" onClick={() => this.handleScatterShowHide()}>
               Close
             </Button>
           </Modal.Footer>
