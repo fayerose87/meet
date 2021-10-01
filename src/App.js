@@ -125,8 +125,8 @@ class App extends Component {
 
       <h1 className="font-weight-bold">Welcome, Developers!</h1>
       <div className="introduction">
-        <p>Use the devMeet app to find and attend an event near you to meet other developers, make friends, find support, grow a business, and explore your interests. Interested in which cities have the most events?
-       <a className="font-weight-bold" onClick={() => this.handleModalShowHide()}> Check out this chart!</a></p>
+        <p>Find an event near you and meet other developers, make friends, find support, grow a business, or explore your interests. Interested in which cities have the most events?
+       <a className="font-weight-bold chart-link" onClick={() => this.handleModalShowHide()}> Check out this chart!</a></p>
         <Modal size="lg" show={this.state.showHide}>
         <Modal.Header closeButton onClick={() => this.handleModalShowHide()}>
             <Modal.Title>Number of Events by City</Modal.Title>
