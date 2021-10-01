@@ -132,7 +132,7 @@ handleScatterModalShowHide() {
       <div className="introduction">
         <p>Find an event near you and meet other developers, make friends, find support, grow a business, or explore your interests. Interested in which cities have the most events?
        <span className="font-weight-bold chart-link" onClick={() => this.handleScatterModalShowHide()}> Check out this chart!</span></p>
-       <p>There's something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS. <span className="font-weight-bold chart-link" onClick={() => this.handlePieModalShowHide()}> Check out the most popular events.</span></p>
+       <p>There&apos;s something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS. <span className="font-weight-bold chart-link" onClick={() => this.handlePieModalShowHide()}> Check out the most popular events.</span></p>
         
         {/*Modal for Scatter Chart*/}
         <Modal size="lg" show={this.state.showHide}>
