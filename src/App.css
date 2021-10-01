@@ -200,6 +200,10 @@ input[type="number"] {
   font-style: italic;
 }
 
+.card-body {
+  text-align: center;
+}
+
 .data-vis-wrapper {
   display: flex;
   align-items: center;
