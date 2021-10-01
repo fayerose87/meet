@@ -139,7 +139,7 @@ handleScatterModalShowHide() {
         <Modal.Header closeButton onClick={() => this.handleScatterModalShowHide()}>
             <Modal.Title>Number of Events by City</Modal.Title>
           </Modal.Header>
-        <Modal.Body className="mx-auto">
+        <Modal.Body>
           <ResponsiveContainer height={400} >
             <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
               <CartesianGrid />
@@ -162,7 +162,7 @@ handleScatterModalShowHide() {
         <Modal.Header closeButton onClick={() => this.handleScatterModalShowHide()}>
             <Modal.Title>Most Popular Events</Modal.Title>
           </Modal.Header>
-        <Modal.Body className="mx-auto">
+        <Modal.Body>
           <EventGenre events={this.state.events} />
         </Modal.Body>
         <Modal.Footer>
