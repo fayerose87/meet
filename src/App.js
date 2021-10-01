@@ -121,33 +121,34 @@ class App extends Component {
 
       <OfflineAlert text={offlineAlert}/>
 
-      <Container fluid>
-      <>
+      <Container>
+
       <h1 className="font-weight-bold">Welcome, Developers!</h1>
-      <p>Use the devMeet app to find and attend an event near you to meet other developers, make friends, find support, grow a business, and explore your interests. Interested in which cities have the most events?
-      <a className="font-weight-bold" onClick={() => this.handleModalShowHide()}> Check out this chart!</a></p>
-      <Modal size="lg" show={this.state.showHide}>
-      <Modal.Header closeButton onClick={() => this.handleModalShowHide()}>
-          <Modal.Title>Number of Events by City</Modal.Title>
-        </Modal.Header>
-      <Modal.Body>
-        <ResponsiveContainer height={200} >
-          <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
-            <CartesianGrid />
-            <XAxis type="category" dataKey="city" name="city" />
-            <YAxis type="number" dataKey="number" name="number of events" />
-            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-            <Scatter data={this.getData()} fill="#006c9a" />
-          </ScatterChart>
-        </ResponsiveContainer>
-      </Modal.Body>
-      <Modal.Footer>
-          <Button variant="secondary" onClick={() => this.handleModalShowHide()}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-      </>
+      <div className="introduction">
+        <p>Use the devMeet app to find and attend an event near you to meet other developers, make friends, find support, grow a business, and explore your interests. Interested in which cities have the most events?
+       <a className="font-weight-bold" onClick={() => this.handleModalShowHide()}> Check out this chart!</a></p>
+        <Modal size="lg" show={this.state.showHide}>
+        <Modal.Header closeButton onClick={() => this.handleModalShowHide()}>
+            <Modal.Title>Number of Events by City</Modal.Title>
+          </Modal.Header>
+        <Modal.Body>
+          <ResponsiveContainer height={200} >
+            <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
+              <CartesianGrid />
+              <XAxis type="category" dataKey="city" name="city" />
+              <YAxis type="number" dataKey="number" name="number of events" />
+              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <Scatter data={this.getData()} fill="#006c9a" />
+            </ScatterChart>
+          </ResponsiveContainer>
+        </Modal.Body>
+        <Modal.Footer>
+            <Button variant="secondary" onClick={() => this.handleModalShowHide()}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
 
           <h2 className="font-weight-bold">Upcoming Events</h2>
           <EventList events={this.state.events}/>
