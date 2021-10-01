@@ -125,12 +125,10 @@ class App extends Component {
       <>
       <h1 className="font-weight-bold">Welcome, Developers!</h1>
       <p>Use the devMeet app to find and attend an event near you to meet other developers, make friends, find support, grow a business, and explore your interests. Interested in which cities have the most events?
-      <a className="font-weight-bold" onClick={() => this.handleModalShowHide()}>
-        Check out this chart!
-      </a></p>
-      <Modal show={this.state.showHide}>
+      <a className="font-weight-bold" onClick={() => this.handleModalShowHide()}> Check out this chart!</a></p>
+      <Modal size="lg" show={this.state.showHide}>
       <Modal.Header closeButton onClick={() => this.handleModalShowHide()}>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Number of Events by City</Modal.Title>
         </Modal.Header>
       <Modal.Body>
         <ResponsiveContainer height={200} >
@@ -146,9 +144,6 @@ class App extends Component {
       <Modal.Footer>
           <Button variant="secondary" onClick={() => this.handleModalShowHide()}>
             Close
-          </Button>
-          <Button variant="primary" onClick={() => this.handleModalShowHide()}>
-            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>
