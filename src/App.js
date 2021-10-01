@@ -24,13 +24,14 @@ class App extends Component {
     pieShowHide : false,
   }
 
-  handleScatterModalShowHide() {
+  handleScatterShowHide() {
     this.setState({ scatterShowHide: !this.state.scatterShowHide })
   }
 
-  handlePieModalShowHide() {
+  handlePieShowHide() {
     this.setState({ pieShowHide: !this.state.pieShowHide })
   }
+
 
 
   async componentDidMount() {
@@ -132,12 +133,12 @@ class App extends Component {
       <h1 className="font-weight-bold">Welcome, Developers!</h1>
       <div className="introduction">
         <p>Find an event near you and meet other developers, make friends, find support, grow a business, or explore your interests. Interested in which cities have the most events?
-       <span className="font-weight-bold chart-link" onClick={() => this.handleScatterModalShowHide()}> Check out this chart!</span></p>
-       <p>There&apos;s something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS. <span className="font-weight-bold chart-link" onClick={() => this.handlePieModalShowHide()}> Check out the most popular events.</span></p>
+       <span className="font-weight-bold chart-link" onClick={() => this.handleScatterShowHide()}> Check out this chart!</span></p>
+       <p>There&apos;s something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS. <span className="font-weight-bold chart-link" onClick={() => this.handlePieShowHide()}> Check out the most popular events.</span></p>
         
         {/*Modal for Scatter Chart*/}
-        <Modal size="lg" show={this.state.showHide}>
-        <Modal.Header closeButton onClick={() => this.handleScatterModalShowHide()}>
+        <Modal size="lg" show={this.state.scatterShowHide}>
+        <Modal.Header closeButton onClick={() => this.handleScatterShowHide()}>
             <Modal.Title>Number of Events by City</Modal.Title>
           </Modal.Header>
         <Modal.Body>
@@ -152,22 +153,22 @@ class App extends Component {
           </ResponsiveContainer>
         </Modal.Body>
         <Modal.Footer>
-            <Button variant="secondary" onClick={() => this.handleScatterModalShowHide()}>
+            <Button variant="secondary" onClick={() => this.handleScatterhowHide()}>
               Close
             </Button>
           </Modal.Footer>
         </Modal>
 
         {/*Modal for Pie Chart*/}
-        <Modal size="lg" show={this.state.showHide}>
-        <Modal.Header closeButton onClick={() => this.handlePieModalShowHide()}>
+        <Modal size="lg" show={this.state.pieShowHide}>
+        <Modal.Header closeButton onClick={() => this.handlePieShowHide()}>
             <Modal.Title>Most Popular Events</Modal.Title>
           </Modal.Header>
         <Modal.Body>
           <EventGenre events={this.state.events} />
         </Modal.Body>
         <Modal.Footer>
-            <Button variant="secondary" onClick={() => this.handlePieModalShowHide()}>
+            <Button variant="secondary" onClick={() => this.handlePieShowHide()}>
               Close
             </Button>
           </Modal.Footer>
