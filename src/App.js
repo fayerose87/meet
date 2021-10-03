@@ -137,11 +137,10 @@ class App extends Component {
        <p>There&apos;s something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS. <span className="font-weight-bold chart-link" onClick={() => this.handlePieShowHide()}> Check out the most popular events.</span></p>
         
         {/*Modal for Scatter Chart*/}
-        <Modal size="lg" show={this.state.scatterShowHide}>
-        <Modal.Header closeButton onClick={() => this.handleScatterShowHide()}>
-            <Modal.Title>Number of Events by City</Modal.Title>
-          </Modal.Header>
-        <Modal.Body>
+        <Accordion>
+  <Accordion.Item eventKey="0">
+    <Accordion.Header>Accordion Item #1</Accordion.Header>
+    <Accordion.Body>
           <ResponsiveContainer height={400} >
             <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
               <CartesianGrid />
@@ -151,29 +150,17 @@ class App extends Component {
               <Scatter data={this.getData()} fill="#006c9a" />
             </ScatterChart>
           </ResponsiveContainer>
-        </Modal.Body>
-        <Modal.Footer>
-            <Button variant="secondary" onClick={() => this.handleScatterShowHide()}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
+          </Accordion.Body>
+  </Accordion.Item>
 
         {/*Modal for Pie Chart*/}
-        <Modal size="lg" show={this.state.pieShowHide}>
-        <Modal.Header closeButton onClick={() => this.handlePieShowHide()}>
-            <Modal.Title>Most Popular Events</Modal.Title>
-          </Modal.Header>
-        <Modal.Body>
+        <Accordion.Item eventKey="1">
+    <Accordion.Header>Accordion Item #2</Accordion.Header>
+    <Accordion.Body>
           <EventGenre events={this.state.events} />
-        </Modal.Body>
-        <Modal.Footer>
-            <Button variant="secondary" onClick={() => this.handlePieShowHide()}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
-
+          </Accordion.Body>
+  </Accordion.Item>
+</Accordion>
       </div>
 
           <h2 className="font-weight-bold">Upcoming Events</h2>
