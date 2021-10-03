@@ -24,6 +24,7 @@ const EventGenre = ({ events }) => {
 
     return (
         <ResponsiveContainer height={400}>
+            <p>Most popular events in {`${location}`}</p>
             <PieChart width={400} height={400}>
                 <Pie
                     data={data}
