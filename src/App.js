@@ -130,7 +130,7 @@ class App extends Component {
 
       <Container>
 
-      <div className="introduction">
+      
         <h1 className="font-weight-bold">Welcome, Developers! We&apos;re glad you&apos;re here!</h1>
         <p>Find an event near you and meet other developers, make friends, find support, grow a business, or explore your interests. Interested in which cities have the most events?
        <span className="font-weight-bold chart-link" onClick={() => this.handleScatterShowHide()}> Check out this chart!</span></p>
@@ -138,7 +138,7 @@ class App extends Component {
         
       <Accordion>
         <Accordion.Item eventKey="0" flush>
-           <Accordion.Header>Accordion Item #1</Accordion.Header>
+           <Accordion.Header>Most Popular Events by City</Accordion.Header>
               <Accordion.Body>
                  <ResponsiveContainer height={400} >
                   <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
@@ -153,13 +153,12 @@ class App extends Component {
         </Accordion.Item>
         
          <Accordion.Item eventKey="1" flush>
-          <Accordion.Header>Accordion Item #2</Accordion.Header>
+          <Accordion.Header>Most Popular Types of Events</Accordion.Header>
             <Accordion.Body>
               <EventGenre events={this.state.events} />
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-      </div>
 
           <h2 className="font-weight-bold">Upcoming Events</h2>
           <EventList events={this.state.events}/>
