@@ -18,7 +18,7 @@ class App extends Component {
     numberOfEvents: 32,
     events: [],
     locations: [],
-    currentLocation: 'all',
+    currentLocation: 'all cities',
     showWelcomeScreen: undefined,
   }
 
@@ -58,7 +58,7 @@ class App extends Component {
 
   updateEvents = (location, numberOfEvents) => {
     getEvents().then((events) => {
-      const locationEvents = (location === 'all')
+      const locationEvents = (location === 'all cities')
       ?
         events.slice(0, numberOfEvents)
       :
@@ -125,9 +125,9 @@ class App extends Component {
         
       <Accordion>
         <Accordion.Item eventKey="0" flush>
-           <Accordion.Header>Most Popular Events by City</Accordion.Header>
+           <Accordion.Header>Number of Events by City</Accordion.Header>
               <Accordion.Body>
-                 <p>Most popular events in {this.state.currentLocation}</p>
+                 <p>Number of events in {this.state.currentLocation}</p>
                  <ResponsiveContainer height={400} >
                   <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
                     <CartesianGrid />
@@ -143,6 +143,7 @@ class App extends Component {
          <Accordion.Item eventKey="1" flush>
           <Accordion.Header>Most Popular Types of Events</Accordion.Header>
             <Accordion.Body>
+              <p>Most popular events in {this.state.currentLocation}</p>
               <EventGenre events={this.state.events} />
             </Accordion.Body>
           </Accordion.Item>
