@@ -23,23 +23,11 @@ ul {
 }
 
 p {
-  margin: 1em 0;
-}
-
-.chart-link {
-  color: #006c9a;
-}
-
-.chart-link:hover {
-  color: #004B6B;
+  margin: 0.5em 0;
 }
 
 .nav {
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75)
-}
-
-.introduction {
-  text-align: left;
 }
 
 .display-none {
