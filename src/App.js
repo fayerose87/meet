@@ -12,6 +12,7 @@ import header from './header_image.jpg';
 import { OfflineAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   state = {
