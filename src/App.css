@@ -22,10 +22,6 @@ ul {
   list-style: none;
 }
 
-p {
-  margin: 0.5em 0;
-}
-
 .nav {
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75)
 }
