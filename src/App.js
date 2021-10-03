@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Navbar, Button, Modal } from "react-bootstrap";
+import { Container, Navbar, Accordion } from "react-bootstrap";
 import "./App.css";
 import EventList from "./EventList"; 
 import CitySearch from "./CitySearch";
