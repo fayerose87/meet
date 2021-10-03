@@ -124,7 +124,7 @@ class App extends Component {
         <p>Find an event near you and meet other developers, make friends, find support, grow a business, or explore your interests. There&apos;s something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS.</p>
         <p>Interested in which cities have the most events? Or what types of events are the most popular? Check out the charts below.</p>
         
-      <Accordion>
+      <Accordion flush>
         <Accordion.Item eventKey="0" flush>
            <Accordion.Header>Number of Events by City</Accordion.Header>
               <Accordion.Body>
