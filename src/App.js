@@ -20,19 +20,7 @@ class App extends Component {
     locations: [],
     currentLocation: 'all',
     showWelcomeScreen: undefined,
-    scatterShowHide : false,
-    pieShowHide : false,
   }
-
-  handleScatterShowHide() {
-    this.setState({ scatterShowHide: !this.state.scatterShowHide })
-  }
-
-  handlePieShowHide() {
-    this.setState({ pieShowHide: !this.state.pieShowHide })
-  }
-
-
 
   async componentDidMount() {
     const { numberOfEvents } = this.state;
@@ -132,9 +120,8 @@ class App extends Component {
 
       
         <h1 className="font-weight-bold">Welcome, Developers! We&apos;re glad you&apos;re here!</h1>
-        <p>Find an event near you and meet other developers, make friends, find support, grow a business, or explore your interests. Interested in which cities have the most events?
-       <span className="font-weight-bold chart-link" onClick={() => this.handleScatterShowHide()}> Check out this chart!</span></p>
-       <p>There&apos;s something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS. <span className="font-weight-bold chart-link" onClick={() => this.handlePieShowHide()}> Check out the most popular events.</span></p>
+        <p>Find an event near you and meet other developers, make friends, find support, grow a business, or explore your interests. here&apos;s something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS.<br></br>
+          Interested in which cities have the most events? Or what types of events are the most popular? Check out the charts below.</p>
         
       <Accordion>
         <Accordion.Item eventKey="0" flush>
