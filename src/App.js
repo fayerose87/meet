@@ -127,7 +127,7 @@ class App extends Component {
         <Accordion.Item eventKey="0" flush>
            <Accordion.Header>Most Popular Events by City</Accordion.Header>
               <Accordion.Body>
-                 <p>Most popular events in {this.state.locations}</p>
+                 <p>Most popular events in {this.state.city}</p>
                  <ResponsiveContainer height={400} >
                   <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
                     <CartesianGrid />
