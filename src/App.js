@@ -136,31 +136,29 @@ class App extends Component {
        <span className="font-weight-bold chart-link" onClick={() => this.handleScatterShowHide()}> Check out this chart!</span></p>
        <p>There&apos;s something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS. <span className="font-weight-bold chart-link" onClick={() => this.handlePieShowHide()}> Check out the most popular events.</span></p>
         
-        {/*Modal for Scatter Chart*/}
-        <Accordion>
-  <Accordion.Item eventKey="0">
-    <Accordion.Header>Accordion Item #1</Accordion.Header>
-    <Accordion.Body>
-          <ResponsiveContainer height={400} >
-            <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
-              <CartesianGrid />
-              <XAxis type="category" dataKey="city" name="city" />
-              <YAxis type="number" dataKey="number" name="number of events" />
-              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-              <Scatter data={this.getData()} fill="#006c9a" />
-            </ScatterChart>
-          </ResponsiveContainer>
-          </Accordion.Body>
-  </Accordion.Item>
-
-        {/*Modal for Pie Chart*/}
-        <Accordion.Item eventKey="1">
-    <Accordion.Header>Accordion Item #2</Accordion.Header>
-    <Accordion.Body>
-          <EventGenre events={this.state.events} />
-          </Accordion.Body>
-  </Accordion.Item>
-</Accordion>
+      <Accordion>
+        <Accordion.Item eventKey="0" flush>
+           <Accordion.Header>Accordion Item #1</Accordion.Header>
+              <Accordion.Body>
+                 <ResponsiveContainer height={400} >
+                  <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
+                    <CartesianGrid />
+                    <XAxis type="category" dataKey="city" name="city" />
+                    <YAxis type="number" dataKey="number" name="number of events" />
+                    <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                    <Scatter data={this.getData()} fill="#006c9a" />
+                  </ScatterChart>
+                </ResponsiveContainer>
+              </Accordion.Body>
+        </Accordion.Item>
+        
+         <Accordion.Item eventKey="1" flush>
+          <Accordion.Header>Accordion Item #2</Accordion.Header>
+            <Accordion.Body>
+              <EventGenre events={this.state.events} />
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
       </div>
 
           <h2 className="font-weight-bold">Upcoming Events</h2>
