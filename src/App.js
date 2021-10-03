@@ -120,8 +120,8 @@ class App extends Component {
 
       
         <h1 className="font-weight-bold">Welcome, Developers! We&apos;re glad you&apos;re here!</h1>
-        <p>Find an event near you and meet other developers, make friends, find support, grow a business, or explore your interests. There&apos;s something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS.<br></br>
-          Interested in which cities have the most events? Or what types of events are the most popular? Check out the charts below.</p>
+        <p>Find an event near you and meet other developers, make friends, find support, grow a business, or explore your interests. There&apos;s something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS.</p>
+        <p>Interested in which cities have the most events? Or what types of events are the most popular? Check out the charts below.</p>
         
       <Accordion>
         <Accordion.Item eventKey="0" flush>
