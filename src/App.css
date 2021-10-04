@@ -117,6 +117,10 @@ input[type="number"] {
   padding-bottom: 15px;
 }
 
+.event-date {
+  margin-bottom: 5px;
+}
+
 .event-details {
   margin-bottom: 20px;
 }
