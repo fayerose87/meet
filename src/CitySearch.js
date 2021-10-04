@@ -42,10 +42,11 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch mx-auto mx-lg-0">
+        <label className="number-label">Search for a City:</label>
         <input 
           type="text"
           className="city"
-          placeholder="Search for a city"
+          placeholder="Ex: London, UK"
           value={this.state.query}
           onChange={this.handleInputChanged}
           onFocus={() => { this.setState({ showSuggestions: true }) }}
@@ -55,7 +56,7 @@ class CitySearch extends Component {
           {this.state.suggestions.map((suggestion) => (
           <li key={suggestion} onMouseDown={() => this.handleItemClicked(suggestion)}>{suggestion}</li>
           ))}
-          <li onMouseDown={() => this.handleItemClicked("all cities")}>
+          <li onMouseDown={() => this.handleItemClicked("All Cities")}>
             <b>See all cities</b>
           </li>
         </ul>

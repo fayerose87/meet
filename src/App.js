@@ -19,7 +19,7 @@ class App extends Component {
     numberOfEvents: 32,
     events: [],
     locations: [],
-    currentLocation: 'all cities',
+    currentLocation: 'All Cities',
     showWelcomeScreen: undefined,
   }
 
@@ -59,7 +59,7 @@ class App extends Component {
 
   updateEvents = (location, numberOfEvents) => {
     getEvents().then((events) => {
-      const locationEvents = (location === 'all cities')
+      const locationEvents = (location === 'All Cities')
       ?
         events.slice(0, numberOfEvents)
       :
@@ -115,7 +115,7 @@ class App extends Component {
 
       <OfflineAlert text={offlineAlert}/>
 
-      <Container fluid>
+      <Container>
 
       
         <h1 className="font-weight-bold">Welcome, Developers! We&apos;re glad you&apos;re here!</h1>
