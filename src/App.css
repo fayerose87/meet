@@ -220,7 +220,6 @@ input[type="number"] {
   .data-vis-wrapper {
     flex-direction: row;
   }
-
   .data-vis-wrapper .recharts-responsive-container {
     flex-basis: 50%;
     max-width: 50%;
@@ -228,11 +227,7 @@ input[type="number"] {
     margin: 0 auto;
   }
 
-  .header {
-    margin-top: 20px;
-  }
-
   .CitySearch {
-    margin: 20px auto;
+    margin: 10px auto;
   }
 }
