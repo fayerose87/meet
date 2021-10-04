@@ -124,8 +124,8 @@ class App extends Component {
         <p>Find an event near you and meet other developers, make friends, find support, grow a business, or explore your interests. There&apos;s something for every kind of developer, including: React, JavaScript, Node, jQuery, and Angular JS.</p>
         <p>Interested in which cities have the most events? Or what types of events are the most popular? Check out the charts below.</p>
         
-      <Accordion flush>
-        <Accordion.Item eventKey="0" flush>
+      <Accordion>
+        <Accordion.Item eventKey="0">
            <Accordion.Header>View Number of Events by City</Accordion.Header>
               <Accordion.Body>
                  <p className="font-weight-bold text-center">Number of events in {this.state.currentLocation}</p>
@@ -141,7 +141,7 @@ class App extends Component {
               </Accordion.Body>
         </Accordion.Item>
         
-         <Accordion.Item eventKey="1" flush>
+         <Accordion.Item eventKey="1">
           <Accordion.Header className="font-weight-bold">View Most Popular Types of Events</Accordion.Header>
             <Accordion.Body>
               <p className="font-weight-bold text-center">Most popular events in {this.state.currentLocation}</p>
