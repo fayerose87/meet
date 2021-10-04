@@ -201,6 +201,13 @@ input[type="number"] {
 }
 
 
+.accordion-button:not(.collapsed) {
+	color: #006c9a;
+}
+
+.accordion-button:focus {
+	border-color: #006c9a;
+}
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {

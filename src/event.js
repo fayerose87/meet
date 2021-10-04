@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import moment from 'moment';
 import { Container } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class Event extends Component {
   state = {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Navbar, Accordion } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import EventList from "./EventList"; 
 import CitySearch from "./CitySearch";
@@ -12,7 +13,6 @@ import header from './header_image.jpg';
 import { OfflineAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   state = {
@@ -126,9 +126,9 @@ class App extends Component {
         
       <Accordion flush>
         <Accordion.Item eventKey="0" flush>
-           <Accordion.Header className="font-weight-bold">View number of Events by City</Accordion.Header>
+           <Accordion.Header>View Number of Events by City</Accordion.Header>
               <Accordion.Body>
-                 <p className="font-weight-bold text-center" >Number of events in {this.state.currentLocation}</p>
+                 <p className="font-weight-bold text-center">Number of events in {this.state.currentLocation}</p>
                  <ResponsiveContainer height={400} >
                   <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
                     <CartesianGrid />
@@ -142,7 +142,7 @@ class App extends Component {
         </Accordion.Item>
         
          <Accordion.Item eventKey="1" flush>
-          <Accordion.Header className="font-weight-bold">View most Popular Types of Events</Accordion.Header>
+          <Accordion.Header className="font-weight-bold">View Most Popular Types of Events</Accordion.Header>
             <Accordion.Body>
               <p className="font-weight-bold text-center">Most popular events in {this.state.currentLocation}</p>
               <EventGenre events={this.state.events} />
