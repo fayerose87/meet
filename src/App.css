@@ -96,6 +96,10 @@ input[type="number"] {
   color: #FFF;
 }
 
+#nohover > li:hover {
+  background-color: none;
+}
+
 .EventList {
   padding-top: 20px;
 }
