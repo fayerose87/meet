@@ -200,12 +200,9 @@ input[type="number"] {
   overflow: visible;
 }
 
-.accordion-button {
-	font-weight: bold;
-}
-
 .accordion-button:not(.collapsed) {
-	color: #006c9a;
+	color: #fff;
+	background-color: #006c9a;
 }
 
 .accordion-button:focus {
