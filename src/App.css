@@ -98,6 +98,7 @@ input[type="number"] {
 
 .nohover {
   pointer-events: none;
+  display: none;
 }
 
 .EventList {
