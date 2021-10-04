@@ -126,7 +126,7 @@ class App extends Component {
         <Accordion.Item eventKey="0">
            <Accordion.Header>View Number of Events by City</Accordion.Header>
               <Accordion.Body>
-                 <p className="font-weight-bold text-center">Number of events in {this.state.currentLocation}</p>
+                 <p className="font-weight-bold text-center">Number of Events in {this.state.currentLocation}</p>
                  <ResponsiveContainer height={400} >
                   <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
                     <CartesianGrid />
@@ -142,7 +142,7 @@ class App extends Component {
          <Accordion.Item eventKey="1">
           <Accordion.Header className="font-weight-bold">View Most Popular Types of Events</Accordion.Header>
             <Accordion.Body>
-              <p className="font-weight-bold text-center">Most popular events in {this.state.currentLocation}</p>
+              <p className="font-weight-bold text-center">Most Popular Events in {this.state.currentLocation}</p>
               <EventGenre events={this.state.events} />
             </Accordion.Body>
           </Accordion.Item>
