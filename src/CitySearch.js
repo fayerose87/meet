@@ -42,11 +42,10 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch mx-auto mx-lg-0">
-        <label className="number-label">Search for a City:</label>
         <input 
           type="text"
           className="city"
-          placeholder="Ex: London, UK"
+          placeholder="Search for a City (ex: London, UK)"
           value={this.state.query}
           onChange={this.handleInputChanged}
           onFocus={() => { this.setState({ showSuggestions: true }) }}

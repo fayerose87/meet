@@ -96,7 +96,7 @@ class App extends Component {
       <div className="App">
        <Navbar className="nav" expand="lg" bg="light" variant="light">
          <Container className="justify-content-between">
-           <Navbar.Brand className="mx-auto mx-lg-0" href="/">
+           <Navbar.Brand className="mx-auto mx-lg-0">
              <img fluid
               alt="devMeet logo"
               src={logo}
