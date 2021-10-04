@@ -14,7 +14,6 @@ function WelcomeScreen(props) {
                   alt="devMeet logo"
                   src={logo}
                   width="214px"
-                  height="100%"
                   className="logo"
                 />
                 <p>
