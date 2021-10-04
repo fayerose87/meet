@@ -115,7 +115,7 @@ class App extends Component {
 
       <OfflineAlert text={offlineAlert}/>
 
-      <Container>
+      <Container fluid>
 
       
         <h1 className="font-weight-bold">Welcome, Developers! We&apos;re glad you&apos;re here!</h1>
@@ -148,7 +148,7 @@ class App extends Component {
           </Accordion.Item>
         </Accordion>
 
-          <h2 className="font-weight-bold">Upcoming Events</h2>
+          <h2 className="font-weight-bold">Upcoming Events for {this.state.currentLocation}</h2>
           <EventList events={this.state.events}/>
           <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} />
         </Container>

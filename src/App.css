@@ -31,6 +31,10 @@ ul {
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75)
 }
 
+.logo {
+  position: relative;
+}
+
 .display-none {
   display: none;
 }
