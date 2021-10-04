@@ -228,6 +228,6 @@ input[type="number"] {
   }
 
   .CitySearch {
-    margin: 10px auto;
+    margin: 0 auto 20px;
   }
 }
