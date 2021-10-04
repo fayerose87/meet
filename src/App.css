@@ -187,6 +187,10 @@ input[type="number"] {
   text-align: center;
 }
 
+.accordion {
+  margin: 25px 0;
+}
+
 .data-vis-wrapper {
   display: flex;
   align-items: center;
@@ -198,15 +202,6 @@ input[type="number"] {
 }
 .recharts-surface {
   overflow: visible;
-}
-
-.accordion-button:not(.collapsed) {
-	color: #fff;
-	background-color: #006c9a;
-}
-
-.accordion-button:focus {
-	border-color: #006c9a;
 }
 
 @media only screen and (min-width: 992px) {
