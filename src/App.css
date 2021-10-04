@@ -96,7 +96,7 @@ input[type="number"] {
   color: #FFF;
 }
 
-#nohover {
+.nohover {
   pointer-events: none;
 }
 

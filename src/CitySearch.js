@@ -18,7 +18,7 @@ class CitySearch extends Component {
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText: 'No matches found',
+        infoText: 'No matches found.',
       });
     } else {
       this.setState({
@@ -51,7 +51,7 @@ class CitySearch extends Component {
           onFocus={() => { this.setState({ showSuggestions: true }) }}
           onBlur={() => { this.setState({ showSuggestions: false }) }} />
         <ul className="suggestions" style={this.state.showSuggestions ? {}: { display: 'none' }}>
-          <li><InfoAlert text={this.state.infoText} id="nohover" /></ li>
+          <li className="nohover"><InfoAlert text={this.state.infoText} /></ li>
           {this.state.suggestions.map((suggestion) => (
           <li key={suggestion} onMouseDown={() => this.handleItemClicked(suggestion)}>{suggestion}</li>
           ))}
