@@ -51,7 +51,7 @@ input[type="number"] {
 }
 
 .city {
-  width: 250px;
+  width: 300px;
 }
 
 .CitySearch {
@@ -65,7 +65,7 @@ input[type="number"] {
 }
 
 .suggestions {
-  width: 250px;
+  width: 300px;
   position: absolute;
   z-index: 2;
   align-self: center;

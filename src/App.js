@@ -97,12 +97,10 @@ class App extends Component {
        <Navbar className="nav" expand="lg" bg="light" variant="light">
          <Container className="justify-content-between">
            <Navbar.Brand className="mx-auto mx-lg-0" href="/">
-             <img
+             <img fluid
               alt="devMeet logo"
               src={logo}
-              width="100%"
-              height="35px"
-              className="d-inline-block"/>
+              className="logo d-inline-block"/>
             </Navbar.Brand>
              <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} events={this.state.events}/>
           </Container>
