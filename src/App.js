@@ -148,8 +148,8 @@ class App extends Component {
 
           <h2 className="font-weight-bold">Upcoming Events for {this.state.currentLocation}</h2>
           <EventList events={this.state.events}/>
-          <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} />
         </Container>
+        <NumberOfEvents updateNumberOfEvents={(e) => this.updateNumberOfEvents(e)} />
 
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
       </div>
