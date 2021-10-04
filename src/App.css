@@ -101,6 +101,10 @@ input[type="number"] {
   display: none;
 }
 
+#showalert {
+  display: inline-block;
+}
+
 .EventList {
   padding-top: 20px;
 }

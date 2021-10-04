@@ -51,7 +51,7 @@ class CitySearch extends Component {
           onFocus={() => { this.setState({ showSuggestions: true }) }}
           onBlur={() => { this.setState({ showSuggestions: false }) }} />
         <ul className="suggestions" style={this.state.showSuggestions ? {}: { display: 'none' }}>
-          <li className="nohover"><InfoAlert text={this.state.infoText} style='display: inline-block' /></ li>
+          <li className="nohover"><InfoAlert id="showalert" text={this.state.infoText} /></ li>
           {this.state.suggestions.map((suggestion) => (
           <li key={suggestion} onMouseDown={() => this.handleItemClicked(suggestion)}>{suggestion}</li>
           ))}
