@@ -96,8 +96,8 @@ input[type="number"] {
   color: #FFF;
 }
 
-#nohover > li:hover {
-  background-color: none;
+#nohover {
+  pointer-events: none;
 }
 
 .EventList {
