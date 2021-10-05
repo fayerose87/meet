@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Alert extends Component {
   constructor(props) {
@@ -10,16 +10,14 @@ class Alert extends Component {
   getStyle = () => {
     return {
       color: this.color,
-      background: this.background
+      background: this.background,
     };
-  }
+  };
 
   render() {
     return (
       <div className="Alert">
-        <p style={this.getStyle()}>
-          {this.props.text}
-        </p>
+        <p style={this.getStyle()}>{this.props.text}</p>
       </div>
     );
   }
@@ -28,23 +26,23 @@ class Alert extends Component {
 class InfoAlert extends Alert {
   constructor(props) {
     super(props);
-    this.color = 'black';
+    this.color = "black";
   }
 }
 
 class ErrorAlert extends Alert {
   constructor(props) {
     super(props);
-    this.color = 'red';
+    this.color = "red";
   }
 }
 
 class OfflineAlert extends Alert {
   constructor(props) {
     super(props);
-    this.color = 'white';
-    this.background = '#006c9a';
+    this.color = "white";
+    this.background = "#006c9a";
   }
 }
 
-export { InfoAlert, ErrorAlert, OfflineAlert};
+export { InfoAlert, ErrorAlert, OfflineAlert };

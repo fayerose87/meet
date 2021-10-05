@@ -25,20 +25,20 @@ describe("<Event /> component", () => {
     expect(EventWrapper.find(".show-details-btn")).toHaveLength(1);
   });
 
- test("change show-state on click", () => {
-   EventWrapper.setState({
-     show: false,
+  test("change show-state on click", () => {
+    EventWrapper.setState({
+      show: false,
     });
     EventWrapper.find(".show-details-btn").simulate("click");
     expect(EventWrapper.state("show")).toBe(true);
   });
 
   test("hide details by default", () => {
-    EventWrapper.setState({ 
-        show: false,
+    EventWrapper.setState({
+      show: false,
     });
     expect(EventWrapper.find(".event-details")).toHaveLength(0);
-  })
+  });
 
   test("show details on click", () => {
     EventWrapper.setState({

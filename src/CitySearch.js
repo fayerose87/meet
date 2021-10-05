@@ -1,30 +1,30 @@
 import React, { Component } from "react";
-import { InfoAlert } from './Alert';
+import { InfoAlert } from "./Alert";
 
 class CitySearch extends Component {
   state = {
     query: "",
     suggestions: [],
     showSuggestions: false,
-    infoText:''
-  }
+    infoText: "",
+  };
 
   handleInputChanged = (event) => {
     const value = event.target.value;
-    this.setState({showSuggestions:true});
+    this.setState({ showSuggestions: true });
     const suggestions = this.props.locations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText: 'No matches found.',
+        infoText: "No matches found.",
       });
     } else {
       this.setState({
         query: value,
         suggestions,
-        infoText:''
+        infoText: "",
       });
     }
   };
@@ -33,27 +33,42 @@ class CitySearch extends Component {
     this.setState({
       query: suggestion,
       showSuggestions: false,
-      errorText:''
+      errorText: "",
     });
-  
+
     this.props.updateEvents(suggestion);
-  }
+  };
 
   render() {
     return (
       <div className="CitySearch mx-auto mx-lg-0">
-        <input 
+        <input
           type="text"
           className="city"
           placeholder="Search for a City (ex: London, UK)"
           value={this.state.query}
           onChange={this.handleInputChanged}
-          onFocus={() => { this.setState({ showSuggestions: true }) }}
-          onBlur={() => { this.setState({ showSuggestions: false }) }} />
-        <ul className="suggestions" style={this.state.showSuggestions ? {}: { display: 'none' }}>
-          <li className="nohover"><InfoAlert text={this.state.infoText} /></ li>
+          onFocus={() => {
+            this.setState({ showSuggestions: true });
+          }}
+          onBlur={() => {
+            this.setState({ showSuggestions: false });
+          }}
+        />
+        <ul
+          className="suggestions"
+          style={this.state.showSuggestions ? {} : { display: "none" }}
+        >
+          <li className="nohover">
+            <InfoAlert text={this.state.infoText} />
+          </li>
           {this.state.suggestions.map((suggestion) => (
-          <li key={suggestion} onMouseDown={() => this.handleItemClicked(suggestion)}>{suggestion}</li>
+            <li
+              key={suggestion}
+              onMouseDown={() => this.handleItemClicked(suggestion)}
+            >
+              {suggestion}
+            </li>
           ))}
           <li onMouseDown={() => this.handleItemClicked("All Cities")}>
             <b>See all cities</b>
@@ -63,4 +78,4 @@ class CitySearch extends Component {
     );
   }
 }
-export default CitySearch
+export default CitySearch;

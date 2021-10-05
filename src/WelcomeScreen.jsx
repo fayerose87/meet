@@ -7,7 +7,7 @@ import { Container, Row } from "react-bootstrap";
 function WelcomeScreen(props) {
   return props.showWelcomeScreen ? (
     <Container className="WelcomeScreen">
-      <img alt="background-image" src={background} className="background" />
+      <img alt="background" src={background} className="background" />
         <Row className="login col-sm-8 mx-auto">
               <div className="card-body p-4 p-sm-5">
                 <img
